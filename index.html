@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>छठ पूजा — आस्था, श्रद्धा और सूर्य देव का पावन महापर्व</title>
+  <meta name="description" content="छठ पूजा का पावन डिजिटल व इंटरैक्टिव अनुभव। आस्था, श्रद्धा और सूर्य देव के आशीर्वाद से सजी पारंपरिक पूजा थाली, आरती, अर्घ्य और मनमोहक भक्ति संगीत।">
+  <meta name="keywords" content="छठ पूजा, Chhath Puja, सूर्य देव, छठी मैया, अर्घ्य, ठेकुआ, नहाय खाय, खरना, संध्या अर्घ्य, उषा अर्घ्य">
+  
+  <!-- Favicon SVG -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%238F1717' stroke='%23A86600' stroke-width='4'/><path d='M50 20 Q58 38 58 52 A8 8 0 0 1 42 52 Q42 38 50 20 Z' fill='%23F5EBD0'/><circle cx='50' cy='50' r='6' fill='%23FFA500'/><path d='M28 65 Q50 82 72 65 Q50 72 28 65 Z' fill='%23D4AF37'/></svg>">
+
+  <!-- Google Fonts: Rozha One, Cinzel, Noto Serif Devanagari, Yatra One, Marcellus -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Marcellus&family=Noto+Serif+Devanagari:wght@400;500;600;700&family=Rozha+One&family=Yatra+One&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="chhath-theme">
+  <!-- Subtle Ambient Background Canvas for Mist, Golden Sparks & Floating Diyas -->
+  <canvas id="ambient-canvas" class="ambient-canvas" aria-hidden="true"></canvas>
+
+  <!-- Navigation Bar -->
+  <header class="site-header" id="main-header">
+    <div class="nav-container">
+      <a href="#hero" class="brand-logo" aria-label="छठ पूजा होम">
+        <span class="sacred-symbol">ॐ</span>
+        <div class="brand-text">
+          <span class="brand-title">छठ पूजा</span>
+          <span class="brand-subtitle">महापर्व • लोक-आस्था</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="desktop-nav" aria-label="मुख्य नेविगेशन">
+        <ul class="nav-links">
+          <li><a href="#hero" class="nav-link active">आरंभ</a></li>
+          <li><a href="#bhavna" class="nav-link">पावन भावना</a></li>
+          <li><a href="#parampara" class="nav-link">चार दिवसीय अनुष्ठान</a></li>
+          <li><a href="#prasad" class="nav-link">महाप्रसाद</a></li>
+          <li><a href="#diya-offering" class="nav-link">दीप समर्पण</a></li>
+          <li><a href="#subhkamnaye" class="nav-link">शुभकामनाएँ</a></li>
+        </ul>
+      </nav>
+
+      <!-- Music & Menu Actions -->
+      <div class="header-actions">
+        <!-- Change Song Modal Button -->
+        <button id="open-song-modal-btn" class="song-selector-btn" aria-label="छठ भजन बदलें" title="छठ भजन बदलें या अपनी MP3 फ़ाइल जोड़ें">
+          <span class="btn-music-note">🎵</span>
+          <span class="current-track-badge" id="header-song-name">छठी मैया बुलाये...</span>
+          <span class="change-tag">बदलें</span>
+        </button>
+
+        <!-- Elegant Music Toggle Button -->
+        <button id="music-toggle-btn" class="music-btn" aria-label="भक्ति संगीत चालू या बंद करें" title="भक्ति संगीत चालू / बंद करें">
+          <span class="music-icon-box">
+            <span class="music-bars" aria-hidden="true">
+              <span class="bar bar-1"></span>
+              <span class="bar bar-2"></span>
+              <span class="bar bar-3"></span>
+              <span class="bar bar-4"></span>
+            </span>
+          </span>
+          <span class="music-text" id="music-btn-text">🔊 संगीत चालू</span>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-menu-toggle" class="mobile-toggle-btn" aria-label="नेविगेशन मेन्यू खोलें" aria-expanded="false">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Navigation -->
+    <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+      <nav class="mobile-nav" aria-label="मोबाइल नेविगेशन">
+        <ul class="mobile-nav-links">
+          <li><a href="#hero" class="mobile-nav-link">Home (आरंभ)</a></li>
+          <li><a href="#bhavna" class="mobile-nav-link">पूजा (पावन भावना)</a></li>
+          <li><a href="#parampara" class="mobile-nav-link">परंपरा (अनुष्ठान)</a></li>
+          <li><a href="#prasad" class="mobile-nav-link">महाप्रसाद व सूप</a></li>
+          <li><a href="#diya-offering" class="mobile-nav-link">दीप समर्पण</a></li>
+          <li><a href="#subhkamnaye" class="mobile-nav-link">शुभकामनाएँ</a></li>
+        </ul>
+        <div class="mobile-music-box">
+          <button id="mobile-song-btn" class="song-selector-btn mobile-song-btn">
+            <span class="btn-music-note">🎵</span>
+            <span>भजन बदलें</span>
+          </button>
+          <button id="mobile-music-toggle" class="music-btn mobile-music-btn">
+            <span class="music-text" id="mobile-music-btn-text">🔊 संगीत चालू</span>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Audio Player (graceful fallback + source management) -->
+  <audio id="chhath-audio" src="audio/chhath-puja.mp3" preload="auto" loop></audio>
+
+  <main id="main-content">
+    <!-- ==============================================
+         HERO SECTION: THE INTERACTIVE CHHATH PUJA THALI
+         ============================================== -->
+    <section class="hero-section" id="hero" aria-label="छठ पूजा थाली इंटरैक्शन">
+      <!-- Cinematic Ghat Background with Sun Rays -->
+      <div class="hero-bg-layer" aria-hidden="true">
+        <img src="assets/images/chhath_river_ghat.jpg" alt="पवित्र गंगा घाट पर छठ पूजा सूर्योदय" class="hero-bg-img" fetchpriority="high">
+        <div class="hero-gradient-overlay"></div>
+        <div class="sun-god-rays"></div>
+        <div class="atmospheric-mist"></div>
+      </div>
+
+      <!-- Sacred Title Header -->
+      <div class="hero-header-content">
+        <div class="sacred-badge">
+          <span class="badge-accent">॥</span>
+          <span class="badge-text">ॐ सूर्याय नमः • ॐ छठी मैया नमः</span>
+          <span class="badge-accent">॥</span>
+        </div>
+        <h1 class="hero-main-title">छठ पूजा</h1>
+        <p class="hero-subtitle">आस्था • श्रद्धा • सूर्य देव का आशीर्वाद</p>
+      </div>
+
+      <!-- Interactive Thali Stage Centerpiece -->
+      <div class="thali-stage" id="thali-stage">
+        <!-- Ambient Radial Sun Aura behind Thali -->
+        <div class="sun-mandala-aura" id="sun-mandala-aura" aria-hidden="true"></div>
+
+        <!-- Water ripples beneath Thali -->
+        <div class="thali-water-reflection" id="thali-water-reflection" aria-hidden="true"></div>
+        <div class="thali-drop-shadow" id="thali-drop-shadow" aria-hidden="true"></div>
+
+        <!-- THE INTERACTIVE CHHATH PUJA THALI -->
+        <div 
+          class="interactive-thali" 
+          id="interactive-thali" 
+          role="region" 
+          tabindex="0"
+          aria-label="इंटरैक्टिव छठ पूजा थाली। माउस या उंगली से खींचकर आगे बढ़ाएँ।"
+        >
+          <!-- Golden Rim Outer Halo -->
+          <div class="thali-golden-halo" id="thali-golden-halo"></div>
+
+          <!-- Brass Thali Disc Plate Container -->
+          <div class="thali-disc-plate" id="thali-disc-plate">
+            <!-- Photorealistic Offerings: Thekua, Banana, Coconut, Sugarcane, Lemon, Diya, Flowers -->
+            <img 
+              src="assets/images/chhath_puja_thali.jpg" 
+              alt="पारंपरिक छठ पूजा थाली - ठेकुआ, नारियल, केला, गन्ना, डाभ नींबू, फूल व जलता हुआ दीपक" 
+              class="thali-img" 
+              draggable="false"
+            >
+
+            <!-- Dynamic Live Flickering Diya Flame on the brass diya in the plate -->
+            <div class="diya-live-flame" id="diya-live-flame" title="पवित्र ज्योति">
+              <span class="flame-core"></span>
+              <span class="flame-inner"></span>
+              <span class="flame-glow"></span>
+              <span class="flame-sparks"></span>
+            </div>
+
+            <!-- Realistic Brass Rim Highlight & Shine -->
+            <div class="thali-rim-glint" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <!-- Floating Guidance Prompt -->
+        <div class="drag-instruction-badge" id="drag-instruction-badge">
+          <div class="drag-icon-wrapper" aria-hidden="true">
+            <svg class="hand-drag-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2a4 4 0 0 0-4 4v7a2 2 0 0 0 4 0V6a2 2 0 0 1 4 0v9a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9a2 2 0 0 1 4 0v5"/>
+              <path d="M18 10a2 2 0 0 1 2 2v2a6 6 0 0 1-6 6"/>
+              <path d="M16 4a2 2 0 0 1 2 2v6"/>
+            </svg>
+          </div>
+          <div class="instruction-content">
+            <span class="instruction-hindi">थाली को छूकर आगे बढ़ाएँ</span>
+            <span class="instruction-en desktop-only">Drag Thali • Music plays while moving</span>
+            <span class="instruction-en mobile-only">Touch & Drag • Music plays while moving</span>
+          </div>
+          <div class="motion-sound-pill" id="motion-sound-pill">
+            <span class="motion-sound-dot"></span>
+            <span class="motion-sound-text" id="motion-sound-text">थाली घुमाते ही भजन गूँजेगा</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Interactive Ritual Actions Bar -->
+      <div class="hero-actions-bar">
+        <button class="ritual-action-pill highlight-pill" id="action-change-song" aria-label="छठ भजन बदलें">
+          <span class="action-icon">🎵</span>
+          <span class="action-label">भजन बदलें</span>
+        </button>
+        <button class="ritual-action-pill" id="action-bell" aria-label="मंदिर की पावन घंटी बजाएँ">
+          <span class="action-icon">🔔</span>
+          <span class="action-label">घंटी बजाएँ</span>
+        </button>
+        <button class="ritual-action-pill" id="action-flowers" aria-label="गंगा में पुष्प वर्षा करें">
+          <span class="action-icon">🌸</span>
+          <span class="action-label">पुष्प वर्षा</span>
+        </button>
+        <button class="ritual-action-pill" id="action-arghya" aria-label="सूर्य देव को अर्घ्य समर्पित करें">
+          <span class="action-icon">☀️</span>
+          <span class="action-label">अर्घ्य समर्पण</span>
+        </button>
+        <button class="ritual-action-pill" id="action-diya" aria-label="पवित्र दीप प्रज्ज्वलित करें">
+          <span class="action-icon">🪔</span>
+          <span class="action-label">दीप प्रज्ज्वलन</span>
+        </button>
+      </div>
+
+      <!-- Scroll Down Indicator -->
+      <a href="#bhavna" class="scroll-down-indicator" aria-label="अगले अनुभाग पर जाएँ">
+        <span class="scroll-text">पावन दर्शन</span>
+        <svg class="scroll-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M7 10l5 5 5-5"/>
+        </svg>
+      </a>
+    </section>
+
+    <!-- ==============================================
+         SECOND SECTION: CHHATH PUJA KI PAAVAN BHAVNA
+         ============================================== -->
+    <section class="section-container section-bhavna" id="bhavna">
+      <div class="section-header">
+        <div class="section-badge">॥ आस्था व समर्पण ॥</div>
+        <h2 class="section-title">छठ पूजा की पावन भावना</h2>
+        <div class="title-separator" aria-hidden="true">
+          <span class="sep-line"></span>
+          <span class="sep-symbol">🪔</span>
+          <span class="sep-line"></span>
+        </div>
+        <p class="section-lead-text">
+          सूर्य देव और छठी मैया के प्रति आस्था, श्रद्धा और समर्पण का यह पावन पर्व परिवार, प्रकृति और विश्वास को एक साथ जोड़ता है।
+        </p>
+      </div>
+
+      <!-- Cinematic Storytelling Split Grid -->
+      <div class="bhavna-grid">
+        <!-- Visual Column -->
+        <div class="bhavna-visual-card">
+          <div class="visual-frame">
+            <img 
+              src="assets/images/chhath_devotees_arghya.jpg" 
+              alt="पवित्र नदी में खड़े होकर उगते सूर्य को अर्घ्य देती व्रती महिला और उनका परिवार" 
+              class="bhavna-img" 
+              loading="lazy"
+            >
+            <div class="visual-glow-border"></div>
+            <div class="visual-caption">
+              <span class="caption-tag">संध्या व उषा अर्घ्य</span>
+              <p class="caption-text">पवित्र जल में खड़े होकर अस्ताचलगामी और उदीयमान भास्कर को सूप से अर्घ्य का पावन क्षण</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Narrative Column -->
+        <div class="bhavna-narrative-card">
+          <div class="narrative-pillar">
+            <div class="pillar-icon">🌅</div>
+            <div class="pillar-content">
+              <h3 class="pillar-title">डूबते और उगते सूर्य की समान वंदना</h3>
+              <p class="pillar-desc">
+                छठ दुनिया का एकमात्र ऐसा महापर्व है जहाँ सबसे पहले अस्ताचलगामी (डूबते) सूर्य को अर्घ्य दिया जाता है, तत्पश्चात उदीयमान (उगते) सूर्य की उपासना होती है। यह प्रकृति का वह सर्वोच्च संदेश है कि जो अस्त हुआ है, उसका उदय भी निश्चित है।
+              </p>
+            </div>
+          </div>
+
+          <div class="narrative-pillar">
+            <div class="pillar-icon">🌿</div>
+            <div class="pillar-content">
+              <h3 class="pillar-title">प्रकृति, शुचिता और लोक-समरसता</h3>
+              <p class="pillar-desc">
+                इस पावन पर्व में किसी पुरोहित या बिचौलिये की आवश्यकता नहीं होती। भक्त सीधे प्रकृति और भुवन-भास्कर सूर्य देव से साक्षात्कार करता है। मिट्टी के चूल्हे, आम की लकड़ी, गंगाजल और बांस के सूप से शुद्धता का सर्वोच्च मानक स्थापित होता है।
+              </p>
+            </div>
+          </div>
+
+          <div class="narrative-pillar">
+            <div class="pillar-icon">🙏</div>
+            <div class="pillar-content">
+              <h3 class="pillar-title">व्रतियों की ३६ घंटे की निर्जला साधना</h3>
+              <p class="pillar-desc">
+                कठिन तप और अटूट निष्ठा का यह व्रत केवल अपने लिए नहीं, अपितु पूरे परिवार, संतान के मंगल और समस्त सृष्टि के आरोग्य व कल्याण के लिए किया जाता है।
+              </p>
+            </div>
+          </div>
+
+          <!-- Emotional Chhath Verse Card -->
+          <div class="traditional-verse-box">
+            <span class="verse-quote-mark">“</span>
+            <p class="verse-text">
+              केलवा के पात पर उगेलन सूरजमल झांके-झुके...<br>
+              कांच ही बांस के बहंगिया, बहंगी लचकत जाए।<br>
+              उ जे बाट जे पूछेला बटोहिया, बहंगी केकरा के जाय?
+            </p>
+            <span class="verse-author">— पारंपरिक लोक-आस्था गीत</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         THIRD SECTION: FOUR SACRED DAYS OF CHHATH PUJA
+         ============================================== -->
+    <section class="section-container section-parampara" id="parampara">
+      <div class="section-header">
+        <div class="section-badge">॥ चार दिवसीय महापर्व ॥</div>
+        <h2 class="section-title">छठ पूजा का पावन अनुष्ठान</h2>
+        <div class="title-separator" aria-hidden="true">
+          <span class="sep-line"></span>
+          <span class="sep-symbol">☀️</span>
+          <span class="sep-line"></span>
+        </div>
+        <p class="section-lead-text">
+          चार दिनों तक चलने वाली यह साधना तन, मन और आत्मा को शुद्ध कर सूर्य देव की असीम ऊर्जा से जोड़ती है।
+        </p>
+      </div>
+
+      <div class="rituals-grid">
+        <!-- Day 1: Nahay Khay -->
+        <article class="ritual-card" data-step="1">
+          <div class="ritual-header">
+            <span class="ritual-day-tag">पहला दिन • चतुर्थी</span>
+            <span class="ritual-number">०१</span>
+          </div>
+          <div class="ritual-icon-bubble">🌊</div>
+          <h3 class="ritual-title">नहाय-खाय (Nahay-Khay)</h3>
+          <h4 class="ritual-sub">आत्म-शुद्धि और शुचिता का संकल्प</h4>
+          <p class="ritual-desc">
+            पर्व का शुभारंभ पवित्र नदी या सरोवर में स्नान से होता है। व्रती इस दिन घर की पूर्ण स्वच्छता कर सात्विक भोजन तैयार करते हैं।
+          </p>
+          <div class="ritual-highlight">
+            <span class="highlight-label">पावन भोग:</span>
+            <span class="highlight-val">चने की दाल, कद्दू (लौकी) की सात्विक सब्जी और अरवा चावल</span>
+          </div>
+        </article>
+
+        <!-- Day 2: Kharna -->
+        <article class="ritual-card" data-step="2">
+          <div class="ritual-header">
+            <span class="ritual-day-tag">दूसरा दिन • पंचमी</span>
+            <span class="ritual-number">०२</span>
+          </div>
+          <div class="ritual-icon-bubble">🔥</div>
+          <h3 class="ritual-title">खरना (Kharna)</h3>
+          <h4 class="ritual-sub">रसियाव-रोटी और निर्जला उपवास का आरंभ</h4>
+          <p class="ritual-desc">
+            दिनभर का निर्जला उपवास। सूर्यास्त के समय मिट्टी के चूल्हे पर गुड़, दूध और अरवा चावल से 'रसियाव' (खीर) व घी चुपड़ी रोटी बनती है।
+          </p>
+          <div class="ritual-highlight">
+            <span class="highlight-label">पावन भोग:</span>
+            <span class="highlight-val">रसियाव (गुड़ की खीर) व रोटी, इसके बाद ३६ घंटे का अखंड उपवास</span>
+          </div>
+        </article>
+
+        <!-- Day 3: Sandhya Arghya -->
+        <article class="ritual-card ritual-card-featured" data-step="3">
+          <div class="ritual-header">
+            <span class="ritual-day-tag">तीसरा दिन • षष्ठी</span>
+            <span class="ritual-number">०३</span>
+          </div>
+          <div class="ritual-icon-bubble">🌅</div>
+          <h3 class="ritual-title">संध्या अर्घ्य (Sandhya Arghya)</h3>
+          <h4 class="ritual-sub">अस्ताचलगामी सूर्य को पहला नमन</h4>
+          <p class="ritual-desc">
+            सायंकाल में पूरे परिवार सहित नदी घाट की ओर प्रस्थान। सूप और दउरा में ठेकुआ, फल, गन्ना सजाकर कमर तक जल में खड़े होकर डूबते सूर्य को प्रथम अर्घ्य दिया जाता है।
+          </p>
+          <div class="ritual-highlight">
+            <span class="highlight-label">विशेषता:</span>
+            <span class="highlight-val">सूप में जलता दिया और अस्ताचलगामी भास्कर को दूध व जल से अर्घ्य</span>
+          </div>
+        </article>
+
+        <!-- Day 4: Usha Arghya & Paran -->
+        <article class="ritual-card" data-step="4">
+          <div class="ritual-header">
+            <span class="ritual-day-tag">चौथा दिन • सप्तमी</span>
+            <span class="ritual-number">०४</span>
+          </div>
+          <div class="ritual-icon-bubble">☀️</div>
+          <h3 class="ritual-title">उषा अर्घ्य व पारण (Usha Arghya)</h3>
+          <h4 class="ritual-sub">उगते सूर्य का स्वागत व व्रत का पारण</h4>
+          <p class="ritual-desc">
+            भोर के समय ब्रह्म मुहूर्त में पुनः घाट पर आगमन। जैसे ही लालिमा छाती है और सूर्य देव उदय होते हैं, उन्हें दूसरा अर्घ्य समर्पित किया जाता है।
+          </p>
+          <div class="ritual-highlight">
+            <span class="highlight-label">पारण:</span>
+            <span class="highlight-val">सूर्य देव व छठी मैया का आशीर्वाद, कच्चे दूध व प्रसाद से व्रत का पारण</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         FOURTH SECTION: SACRED OFFERINGS & PRASAD
+         ============================================== -->
+    <section class="section-container section-prasad" id="prasad">
+      <div class="section-header">
+        <div class="section-badge">॥ महाप्रसाद व सूप ॥</div>
+        <h2 class="section-title">छठ पूजा की पावन सामग्रियाँ</h2>
+        <div class="title-separator" aria-hidden="true">
+          <span class="sep-line"></span>
+          <span class="sep-symbol">🌾</span>
+          <span class="sep-line"></span>
+        </div>
+        <p class="section-lead-text">
+          प्रकृति के अनमोल उपहार और शुद्धता से तैयार प्रसाद, जो छठी मैया को अत्यंत प्रिय हैं।
+        </p>
+      </div>
+
+      <div class="offerings-grid">
+        <!-- Thekua -->
+        <div class="offering-item-card">
+          <div class="offering-icon">🍪</div>
+          <h3 class="offering-name">ठेकुआ (Thekua)</h3>
+          <span class="offering-sub">छठ पूजा का महाप्रसाद</span>
+          <p class="offering-text">
+            गेहूं के आटे, शुद्ध देशी घी और गुड़ से सांचे पर पारंपरिक पत्ती व फूल के आकार में गढ़ा गया अमृततुल्य प्रसाद, जो सात्विकता का प्रतीक है।
+          </p>
+        </div>
+
+        <!-- Bamboo Soop -->
+        <div class="offering-item-card">
+          <div class="offering-icon">🧺</div>
+          <h3 class="offering-name">बांस का सूप व दउरा</h3>
+          <span class="offering-sub">प्रकृति और समरसता का प्रतीक</span>
+          <p class="offering-text">
+            बांस से हस्तनिर्मित सूप और दउरा, जिसमें सभी मौसमी फल व प्रसाद रखकर सूर्य देव को अर्पित किए जाते हैं। यह प्रकृति से जुड़ाव दर्शाता है।
+          </p>
+        </div>
+
+        <!-- Coconut -->
+        <div class="offering-item-card">
+          <div class="offering-icon">🥥</div>
+          <h3 class="offering-name">नारियल व कलावा</h3>
+          <span class="offering-sub">अखंड सौभाग्य व संकल्प</span>
+          <p class="offering-text">
+            सूप में रखा जटा वाला साबुत नारियल, जिस पर रक्षा सूत्र (कलावा) बंधा होता है। यह परिवार की सुख-शांति और दीर्घायु का प्रतीक माना जाता है।
+          </p>
+        </div>
+
+        <!-- Sugarcane -->
+        <div class="offering-item-card">
+          <div class="offering-icon">🎋</div>
+          <h3 class="offering-name">ईख (गन्ना / Sugarcane)</h3>
+          <span class="offering-sub">समृद्धि व मधुरता का छत्र</span>
+          <p class="offering-text">
+            पत्तियों सहित साबुत गन्ने से घाट और घर पर पूजा का मंडप बनाया जाता है। यह जीवन में मिठास, अखंडता और खुशहाली का आह्वान है।
+          </p>
+        </div>
+
+        <!-- Dabh Lemon / Citrus -->
+        <div class="offering-item-card">
+          <div class="offering-icon">🍋</div>
+          <h3 class="offering-name">डाभ नींबू व गागल</h3>
+          <span class="offering-sub">मौसमी आरोग्यता का उपहार</span>
+          <p class="offering-text">
+            बड़ा गोल खट्टा-मीठा डाभ नींबू और मौसमी फल। छठ पूजा प्रकृति की प्रथम उपज को ईश्वर को कृतज्ञतापूर्वक समर्पित करने का पर्व है।
+          </p>
+        </div>
+
+        <!-- Brass Diya -->
+        <div class="offering-item-card">
+          <div class="offering-icon">🪔</div>
+          <h3 class="offering-name">पीतल का अखंड दीपक</h3>
+          <span class="offering-sub">ज्ञान और आस्था का प्रकाश</span>
+          <p class="offering-text">
+            सूप के मध्य में प्रज्वलित दीपक। यह अंतर के अंधकार को मिटाकर जीवन में ज्ञान, सद्भाव और सूर्य देव की दिव्य आभा का संचार करता है।
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         FIFTH SECTION: INTERACTIVE DIYA BLESSING OFFERING
+         ============================================== -->
+    <section class="section-container section-diya-interactive" id="diya-offering">
+      <div class="section-header">
+        <div class="section-badge">॥ डिजिटल दीप समर्पण ॥</div>
+        <h2 class="section-title">पवित्र गंगा में दीप प्रवाहित करें</h2>
+        <div class="title-separator" aria-hidden="true">
+          <span class="sep-line"></span>
+          <span class="sep-symbol">🪔</span>
+          <span class="sep-line"></span>
+        </div>
+        <p class="section-lead-text">
+          छठी मैया से अपने परिवार के लिए मंगलकामना करें और अपना दीप डिजिटल रूप से गंगा की पावन लहरों पर प्रवाहित करें।
+        </p>
+      </div>
+
+      <div class="diya-interactive-box">
+        <!-- Interactive River Stream Area -->
+        <div class="river-stream-canvas-container" id="river-stream-container">
+          <canvas id="river-stream-canvas" class="river-stream-canvas"></canvas>
+          <div class="river-stream-overlay">
+            <span class="river-whisper">॥ जय छठी मैया • हे भुवन भास्कर नमो नमः ॥</span>
+          </div>
+        </div>
+
+        <!-- Diya Launcher Controls -->
+        <div class="diya-launcher-controls">
+          <div class="prayer-selector-group">
+            <label for="prayer-preset" class="control-label">अपनी मंगलकामना चुनें:</label>
+            <select id="prayer-preset" class="prayer-select" aria-label="मंगलकामना का चयन करें">
+              <option value="परिवार की सुख-शांति, समृद्धि व आरोग्य">परिवार की सुख-शांति, समृद्धि व आरोग्य</option>
+              <option value="संतान की दीर्घायु व उज्ज्वल भविष्य">संतान की दीर्घायु व उज्ज्वल भविष्य</option>
+              <option value="समस्त विश्व में शांति, सद्भाव व कल्याण">समस्त विश्व में शांति, सद्भाव व कल्याण</option>
+              <option value="मनोकामना पूर्ति व छठी मैया की कृपा">मनोकामना पूर्ति व छठी मैया की कृपा</option>
+            </select>
+          </div>
+
+          <div class="name-input-group">
+            <label for="devotee-name" class="control-label">आपका नाम / कुल:</label>
+            <input type="text" id="devotee-name" class="devotee-input" placeholder="जैसे: भक्त / सपरिवार" maxlength="30" value="सपरिवार">
+          </div>
+
+          <button id="launch-diya-btn" class="launch-diya-button">
+            <span class="btn-diya-flame">🪔</span>
+            <span class="btn-text">गंगा में दीप अर्पित करें</span>
+          </button>
+        </div>
+
+        <div class="diya-count-badge">
+          <span class="count-num" id="total-diyas-count">१०८+</span>
+          <span class="count-label">भक्तों द्वारा दीप अर्पित किए जा चुके हैं</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================
+         FINAL SECTION: EMOTIONAL CLOSING & BLESSINGS
+         ============================================== -->
+    <section class="section-container section-closing" id="subhkamnaye">
+      <!-- Sunset & Floating Diya Background -->
+      <div class="closing-bg-layer" aria-hidden="true">
+        <img 
+          src="assets/images/chhath_sunset_diya.jpg" 
+          alt="गंगा की लहरों पर तैरता दीपक और बिखरी गेंदे की पंखुड़ियाँ" 
+          class="closing-bg-img" 
+          loading="lazy"
+        >
+        <div class="closing-gradient-overlay"></div>
+      </div>
+
+      <div class="closing-content">
+        <div class="sacred-kalash-icon" aria-hidden="true">🪔</div>
+        
+        <h2 class="closing-title">छठी मैया का आशीर्वाद सदा बना रहे।</h2>
+        <p class="closing-subtitle">आप और आपके परिवार को छठ पूजा की हार्दिक शुभकामनाएँ।</p>
+
+        <!-- Divine Surya Gayatri Mantra Box -->
+        <div class="mantra-shrine-box">
+          <span class="mantra-tag">॥ सूर्य गायत्री मंत्र ॥</span>
+          <p class="mantra-text">
+            ॐ आदित्याय विद्महे प्रभाकराय धीमहि।<br>
+            तन्नः सूर्यः प्रचोदयात्॥
+          </p>
+          <p class="mantra-meaning">
+            "हे भुवन-भास्कर सूर्य देव, आप हमें ज्ञान, तेज, आरोग्य और दीर्घायु का पावन आशीष प्रदान करें।"
+          </p>
+        </div>
+
+        <!-- Interactive Blessing Diya Interaction -->
+        <div class="closing-diya-interaction">
+          <div class="interactive-closing-diya" id="closing-interactive-diya" role="button" tabindex="0" aria-label="अंतिम मंगल दीप को स्पर्श कर आशीर्वाद प्राप्त करें">
+            <div class="diya-glow-halo"></div>
+            <div class="diya-body-symbol">🪔</div>
+            <div class="diya-touch-hint">स्पर्श कर आशीर्वाद लें</div>
+          </div>
+        </div>
+
+        <!-- Share Wishes Action -->
+        <div class="closing-actions">
+          <button id="copy-wishes-btn" class="share-wishes-btn">
+            <span class="btn-icon">✨</span>
+            <span class="btn-text" id="copy-btn-text">शुभकामना संदेश कॉपी करें</span>
+          </button>
+          <button id="blessing-shower-btn" class="share-wishes-btn btn-secondary">
+            <span class="btn-icon">🌸</span>
+            <span class="btn-text">पुष्प व आशीर्वाद वर्षा</span>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <span class="footer-logo">छठ पूजा महापर्व</span>
+        <p class="footer-motto">आस्था • शुचिता • प्रकृति वंदना • सूर्य उपासना</p>
+      </div>
+
+      <div class="footer-nav">
+        <a href="#hero">आरंभ</a>
+        <span class="sep">•</span>
+        <a href="#bhavna">पावन भावना</a>
+        <span class="sep">•</span>
+        <a href="#parampara">अनुष्ठान</a>
+        <span class="sep">•</span>
+        <a href="#prasad">महाप्रसाद</a>
+        <span class="sep">•</span>
+        <a href="#subhkamnaye">शुभकामनाएँ</a>
+      </div>
+
+      <div class="footer-credits">
+        <p>छठ महापर्व के इस पावन अवसर पर समस्त श्रद्धालुओं को नमन। जय छठी मैया।</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==============================================
+       DEVOTIONAL SONG SELECTOR MODAL
+       ============================================== -->
+  <div class="song-modal-overlay" id="song-selector-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="song-modal-dialog">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <div class="modal-title-box">
+          <span class="modal-om-icon">ॐ</span>
+          <div>
+            <h3 class="modal-title" id="modal-title">पावन छठ गीत व भजन चयन</h3>
+            <p class="modal-subtitle">थाली घुमाते समय बजने वाला पावन भजन चुनें या अपनी डिवाइस से गीत जोड़ें</p>
+          </div>
+        </div>
+        <button class="modal-close-btn" id="close-song-modal-btn" aria-label="बंद करें">&times;</button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body">
+        <!-- Playback Mode Card -->
+        <div class="playback-mode-card">
+          <span class="mode-card-label">संगीत वादन शैली (Playback Mode):</span>
+          <div class="mode-options-row">
+            <label class="mode-option active" id="mode-opt-move">
+              <input type="radio" name="playback-mode" value="move_only" checked>
+              <span class="mode-opt-title">✨ केवल थाली घुमाने पर</span>
+              <span class="mode-opt-desc">थाली गतिशील होगी तभी भजन गूँजेगा (अनुशंसित)</span>
+            </label>
+            <label class="mode-option" id="mode-opt-continuous">
+              <input type="radio" name="playback-mode" value="continuous">
+              <span class="mode-opt-title">🔁 निरंतर पृष्ठभूमि संगीत</span>
+              <span class="mode-opt-desc">बैकग्राउंड में लगातार भजन चलता रहेगा</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Preset Song Tracks -->
+        <div class="tracks-list-container">
+          <span class="tracks-list-heading">पारंपरिक पावन छठ गीत:</span>
+          
+          <!-- Track 0 -->
+          <div class="song-card active" data-track-index="0" role="button" tabindex="0">
+            <div class="song-card-radio">
+              <span class="radio-dot"></span>
+            </div>
+            <div class="song-card-info">
+              <h4 class="song-title">छठी मैया बुलाये (Chhathi Maiya Bulaye)</h4>
+              <p class="song-artist">विशाल मिश्रा • कौशल किशोर • देश अनप्लग्ड</p>
+            </div>
+            <span class="song-badge">भक्ति गीत</span>
+          </div>
+
+          <!-- Track 1 -->
+          <div class="song-card" data-track-index="1" role="button" tabindex="0">
+            <div class="song-card-radio">
+              <span class="radio-dot"></span>
+            </div>
+            <div class="song-card-info">
+              <h4 class="song-title">जोड़े जोड़े फलवा (Jode Jode Falwa)</h4>
+              <p class="song-artist">पवन सिंह • टी-सीरीज़ छठ महापर्व गीत</p>
+            </div>
+            <span class="song-badge">महाप्रसाद धुन</span>
+          </div>
+
+          <!-- Track 2 -->
+          <div class="song-card" data-track-index="2" role="button" tabindex="0">
+            <div class="song-card-radio">
+              <span class="radio-dot"></span>
+            </div>
+            <div class="song-card-info">
+              <h4 class="song-title">कांच ही बांस के बहंगिया, बहंगी लचकत जाए</h4>
+              <p class="song-artist">लोक-आस्था का अमर गीत • पारंपरिक बांसुरी</p>
+            </div>
+            <span class="song-badge">बांसुरी व लोकधुन</span>
+          </div>
+
+          <!-- Track 3 -->
+          <div class="song-card" data-track-index="3" role="button" tabindex="0">
+            <div class="song-card-radio">
+              <span class="radio-dot"></span>
+            </div>
+            <div class="song-card-info">
+              <h4 class="song-title">उग हे सुरुज देव, भेल अरघ के बेर</h4>
+              <p class="song-artist">पारंपरिक सूर्य वंदना • प्रातःकालीन अर्घ्य</p>
+            </div>
+            <span class="song-badge">शंख व घंटानाद</span>
+          </div>
+
+          <!-- Track 4 -->
+          <div class="song-card" data-track-index="4" role="button" tabindex="0">
+            <div class="song-card-radio">
+              <span class="radio-dot"></span>
+            </div>
+            <div class="song-card-info">
+              <h4 class="song-title">वैदिक नाद • शुद्ध तानपुरा व मंदिर घंटियाँ</h4>
+              <p class="song-artist">शांत ध्यानमयी धुन • गंगाजल तरंग</p>
+            </div>
+            <span class="song-badge">वैदिक नाद</span>
+          </div>
+        </div>
+
+        <!-- Custom Upload Card -->
+        <div class="custom-audio-upload-card">
+          <div class="upload-icon-box">📁</div>
+          <div class="upload-text-box">
+            <h4 class="upload-title">अपनी डिवाइस से छठ गीत चुनें</h4>
+            <p class="upload-desc">अपने फोन या कंप्यूटर से कोई भी MP3/Audio फ़ाइल चुनें और थाली घुमाते हुए आनंद लें</p>
+            <span class="selected-file-label" id="custom-file-name" style="display:none;"></span>
+          </div>
+          <label class="custom-file-upload-btn" for="custom-audio-input">
+            <span>फ़ाइल चुनें</span>
+            <input type="file" id="custom-audio-input" accept="audio/*" style="display: none;">
+          </label>
+        </div>
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <span class="footer-tip">💡 सुझाव: थाली को माउस या उंगली से घुमाकर भजन का आनंद लें!</span>
+        <button class="modal-confirm-btn" id="confirm-song-modal-btn">चुनें व सहेजें</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-notification" class="toast-notification" role="status" aria-live="polite">
+    <span class="toast-icon">✨</span>
+    <span class="toast-message" id="toast-message">शुभकामनाएँ!</span>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
